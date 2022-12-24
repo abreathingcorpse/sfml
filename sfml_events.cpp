@@ -57,20 +57,23 @@ int main() {
 			}
 
 			// key pressed gets triggered whenever ANY key is pressed
-			// BUG:Since I moved this section to an if, it's no longer checking
-			// whether or not I press Y to confirm quitting.
 			if (event.type == Event::KeyPressed) {
 				if (!asked_quitting && event.key.code == Keyboard::Escape) {
 					cout << "Are you sure you want to quit? " << 
 					"[Y/<Any other key>]" << endl;
 					asked_quitting = true;
+					// This break is required because you want the game
+					// to stop processing this KeyPressed process here and 
+					// to process the next event
+					break;
 				}
+
 				if (asked_quitting && event.key.code == Keyboard::Y) {
 					window.close();
 				} else if (asked_quitting){ 
 					cout << "Unpausing the game" << endl;
 					asked_quitting = false;
-				} 
+				}  
 			}
 
 			// If no Joysticks, use Keyboard Mode 
