@@ -87,15 +87,24 @@ int main() {
 				cout << "Switching to Joystick Mode." << endl;
 				connected_joysticks += 1;
 			}
-		}
 
-// The JoystickButtonPressed and JoystickButtonReleased events, simply print the information in
+			// The JoystickButtonPressed event, simply print the information in
+			// the event.joystickButton member.
+			if (event.type == Event::JoystickButtonPressed) {
+				cout << "Joystick ID: " << event.joystickButton.joystickId
+				<< " pressed the button: " << event.joystickButton.button << endl;
+			}
+// FUTURE IMPLEMENTATIONS:
+// The JoystickButtonReleased events, simply print the information in
 // the event.joystickButton member.
-// It should also print the input from two Joysticks
 
 // The JoystickMoved event, simply print the information within the event.joystickMove event and
 // attempt to find a sweet spot of when the axis actually moved on a controller.
 // It should also print the input from two Joysticks
-	}
+
+		} // window.pollEvent(event)
+
+
+	} // window.isOpen()
 	return 0;
 }
