@@ -5,10 +5,17 @@
 using namespace sf;
 using namespace std;
 
+// Define the constant parameter for when should a Joystick Axis event get triggered
+// It's set to 0.1 by default but, that triggered some inputs on my Joystick while I wasn't
+// even touching it
+const float JOYSTICK_THRESHOLD = 1.0;
+
 int main() {
 
 	// First, we need to define a Window
 	Window window(VideoMode(600,400), "Testing events");
+	// Then we set the JoystickThreshold
+	window.setJoystickThreshold(JOYSTICK_THRESHOLD);
 
 	// Will become true if the game has asked the player if he'd actually want to quit the game 
 	bool asked_quitting = false;
@@ -94,17 +101,24 @@ int main() {
 				cout << "Joystick ID: " << event.joystickButton.joystickId
 				<< " pressed the button: " << event.joystickButton.button << endl;
 			}
-// FUTURE IMPLEMENTATIONS:
-// The JoystickButtonReleased events, simply print the information in
-// the event.joystickButton member.
-
-// The JoystickMoved event, simply print the information within the event.joystickMove event and
-// attempt to find a sweet spot of when the axis actually moved on a controller.
-// It should also print the input from two Joysticks
+			// The JoystickButtonReleased events, simply print the information in
+			// the event.joystickButton member.
+			if (event.type == Event::JoystickButtonReleased) {
+				cout << "Joystick ID: " << event.joystickButton.joystickId
+				<< " released the button: " << event.joystickButton.button << endl;
+			}
+			// The JoystickMoved event, simply print the information within the
+			// event.joystickMove event 
+			if (event.type == Event::JoystickMoved) {
+				cout << "Joystick ID: " << event.joystickMove.joystickId
+				<< " moved the axis: " << event.joystickMove.axis
+				<< " to: " << event.joystickMove.position << endl;
+			}
 
 		} // window.pollEvent(event)
 
 
 	} // window.isOpen()
+
 	return 0;
 }
