@@ -12,6 +12,7 @@ float TAILCUT_HEIGHT = 4.0f; // Must: TAILCUT_HEIGHT < TRIANGLE_HEIGHT
 ConvexShape character;
 // NOTE: The area before the main() is to declare stuff only,
 // any attempts to run anything outside of it will result in an out of scope issue
+ContextSettings settings;
 
 int main() {
 	
@@ -25,7 +26,8 @@ int main() {
 	character.setPoint(3, Vector2f(TRIANGLE_BASE, TRIANGLE_HEIGHT));
 	
 	// Declare the window
-	RenderWindow window(VideoMode(800,600), "Tailcutted triangle");
+	settings.antialiasingLevel = 8;
+	RenderWindow window(VideoMode(800,600), "Tailcutted triangle", Style::Default, settings);
 
 	while(window.isOpen()) {
 		window.clear(Color::Black);
