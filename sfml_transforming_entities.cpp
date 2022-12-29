@@ -40,6 +40,24 @@ int main() {
 		// the game loop
 		Event event;
 
+		// ---------------------- OUT OF SCOPE ----------------------------------
+		// I've come to the realization that this is an implementation that's
+		// out of scope for this project, because by pressing the D key the character
+		// went flying as fast as it could. Therefore this requires a Game Loop set up
+
+		// TODO: Use the sf::Keyboard instead of the Event::KeyPressed
+		// https://www.sfml-dev.org/tutorials/2.5/window-inputs.php
+		// Keep in mind the character.setRotation(angle), it'll have to be sum of
+		// vectors or something
+		/*if (Keyboard::isKeyPressed(Keyboard::D)) {
+			character.move(Vector2f(1.0,0));
+			character.setRotation(90.f);
+		}*/
+
+		// TODO: Bounding boxes
+		// You'll have to implement Collision Detection sometime
+		// ---------------------------------------------------------------------
+
 		while (window.pollEvent(event)) {
 			// "close requested" event: we close the window
 			if (event.type == Event::Closed) {
