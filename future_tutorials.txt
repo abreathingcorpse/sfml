@@ -1,0 +1,6 @@
+* Create a hex tile map following the "Designing your own entities with vertex arrays" tutorial.
+	Requirement: Create at least two hexagonal tiles within a single image,
+			so that they can be loaded on a single texture.
+* Follow the "Playing sound and music" tutorial.
+	Requirement: Research where one can get free audio.
+* Divide the camera for multiplayer following the "Controlling the 2D camera with views".
