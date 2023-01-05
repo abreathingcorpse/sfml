@@ -5,7 +5,7 @@
 using namespace sf;
 using namespace std;
 
-// This is toggled between true/false whenever the player presses V
+// This is toggled between true/false whenever the player presses F
 bool fullscreen_flag = false;
 
 // Receives the referece address to window, as well as the fullscreen_flag
