@@ -8,7 +8,7 @@ using namespace std;
 // This is toggled between true/false whenever the player presses F
 bool fullscreen_flag = false;
 
-// Receives the referece address to window, as well as the fullscreen_flag
+// Receives the reference of window, as well as the fullscreen_flag
 // Toggles between default and Fullscreen mode
 void toggle_fullscreen(RenderWindow& window, bool fullscreen_flag) {
 	if (fullscreen_flag) {
@@ -27,8 +27,6 @@ int main() {
 	// Declare the window
 	RenderWindow window;
 
-	// TODO: Currently the user can't realize it's in fullscreen mode
-	// It needs to, at least, render a black color
 	toggle_fullscreen(window, fullscreen_flag);
 
 	// Get the size of the window 
